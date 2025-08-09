@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+using namespace std;
+
+int missingNumber(vector<int>& nums) {
+    int n = nums.size(), ogSum = 0, currSum = 0, ans;
+    for(int i = 0; i <= n; i ++) {
+        ogSum += i;
+        if(i == n) {
+            ans = ogSum - currSum;
+            break;
+        }
+        currSum += nums[i];
+    }
+
+    return ans;
+}
+
+int main() {
+    vector<int> nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+    cout << missingNumber(nums);
+}
